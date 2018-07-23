@@ -1,4 +1,5 @@
 #A single element of the Linked List
+e Linked List
 class Element(object):
     def __init__(self, value):
         self.value = value
@@ -67,3 +68,41 @@ class LinkedList(object):
                 previous.next = current.next
             else:
                 self.head = current.next
+             
+            
+    def print_list(self):
+        current = self.head
+        while current.next:
+            print(current.value, "-> ", end = '')
+            current = current.next
+        print(current.value)
+                
+                
+
+#Initialising some Elements
+e1 = Element(0)
+e2 = Element(1)
+e3 = Element(2)
+e4 = Element(3)
+e5 = Element(4)
+
+#Setting up the LinkedList
+linked_list = LinkedList(e1)
+linked_list.append(e2)
+linked_list.append(e3)
+linked_list.print_list()                     #outputs "0 -> 1 -> 2"
+
+
+#Check element at specified position
+print(linked_list.get_element(3).value)      #outputs 2
+
+#Insert an element
+linked_list.insert(e4,3)
+linked_list.insert(e5,4)
+linked_list.print_list()                     #outputs "0 -> 1 -> 3 -> 4 -> 2"
+
+
+
+#Delete an element
+linked_list.delete(2)
+linked_list.print_list()                     #outputs "0 -> 1 -> 3 -> 4"
