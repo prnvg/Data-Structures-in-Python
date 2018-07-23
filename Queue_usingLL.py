@@ -11,7 +11,10 @@ class Queue(object):
         '''
         initialises queue with optional parameter
         '''
-        self.front = Element(front)
+        if front == None:
+            self.front = front
+        else:
+            self.front = Element(front)
 
     def enqueue(self, new_element):
         '''
@@ -49,3 +52,30 @@ class Queue(object):
             
         else:
             print('queue is empty')
+
+            
+q = Queue()
+q.enqueue(5)
+q.enqueue(4)
+q.enqueue(3)
+q.enqueue(2)
+q.enqueue(1)
+
+q.print_queue()                 #prints "5 , 4 , 3 , 2 , 1"
+
+q.dequeue()                     #outputs 5 
+q.print_queue()                 #prints "4 , 3 , 2 , 1"
+
+q.dequeue()                     #outputs 4
+q.print_queue()                 #prints "3 , 2 , 1"
+
+q.enqueue(5)
+q.print_queue()                 #prints "3 , 2 , 1 , 5"
+
+q.dequeue()                     #outputs 3
+q.dequeue()                     #outputs 2
+q.dequeue()                     #outputs 1
+q.dequeue()                     #outputs 5
+
+q.print_queue()                 #prints "queue is empty"
+q.dequeue()                     #prints "queue is empty"
