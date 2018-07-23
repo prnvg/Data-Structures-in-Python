@@ -1,13 +1,18 @@
+#A single element of the Linked List
 class Element(object):
     def __init__(self, value):
         self.value = value
         self.next = None
 
+#The linked list with head being the first element
 class LinkedList(object):
     def __init__(self, head=None):
         self.head = head
 
     def append(self, new_element):
+        """
+        Appends an element to the list
+        """
         current = self.head
         if self.head:
             while current.next:
@@ -16,7 +21,10 @@ class LinkedList(object):
         else:
             self.head = new_element
 
-    def get_position(self, position):
+    def get_element(self, position):
+        """
+        Returns element at specified position
+        """
         counter = 1
         current = self.head
         if position < 1:
@@ -29,6 +37,9 @@ class LinkedList(object):
         return None
 
     def insert(self, new_element, position):
+        """
+        Inserts a new element at specific position
+        """
         counter = 1
         current = self.head
         if position > 1:
@@ -43,6 +54,9 @@ class LinkedList(object):
             self.head = new_element
 
     def delete(self, value):
+        """
+        Deletes first occurence of the specified value from the list
+        """
         current = self.head
         previous = None
         while current.value != value and current.next:
